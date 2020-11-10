@@ -13,9 +13,10 @@ import { environment } from 'src/environments/environment.prod';
 
 // importing shared module
 import { SharedModule } from './shared/shared.module';
+import { SplashScreenComponent } from './shared/splash-screen/splash-screen.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, SplashScreenComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
