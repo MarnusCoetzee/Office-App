@@ -47,6 +47,17 @@
       </button>
 
       <span class="fill-space"></span>
+      <button
+        style="margin-right: 50px"
+        type="button"
+        appAddNewOffice
+        aria-label="Add New Board"
+        mat-icon-button
+        *ngIf="(isHandset$ | async) && (afAuth.authState | async)"
+      >
+        New Office
+        <mat-icon aria-label="Side nav toggle icon">add</mat-icon>
+      </button>
       <div *ngIf="!(isHandset$ | async)">
         <a mat-button routerLink="/">Home</a>
 
@@ -55,22 +66,19 @@
         >
         <a
           mat-button
+          appAddNewOffice
+          routerLink="/"
+          *ngIf="afAuth.authState | async"
+          appAddNewOffice
+          >Add New Office <mat-icon>add</mat-icon></a
+        >
+        <a
+          mat-button
           routerLink="/"
           *ngIf="afAuth.authState | async"
           appSignoutButton
           >Logout</a
         >
-        <a
-          mat-button
-          routerLink="/login"
-          *ngIf="afAuth.authState | async as user"
-        >
-          <img
-            class="avatar"
-            [src]="user.photoURL || 'assets/default-user.svg'"
-          />
-          Profile
-        </a>
       </div>
     </mat-toolbar>
 

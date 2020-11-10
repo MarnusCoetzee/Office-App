@@ -12,9 +12,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ShellComponent } from './shell/shell.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignoutButtonDirective } from './shell/directives/signout-button.directive';
+import { AddNewOfficeDirective } from './shell/directives/add-new-office.directive';
 
 const components = [ShellComponent];
 
@@ -32,13 +34,19 @@ const modules = [
   MatFormFieldModule,
   MatInputModule,
   MatSnackBarModule,
+  MatDialogModule,
   MatProgressSpinnerModule,
   FormsModule,
   ReactiveFormsModule,
 ];
 
 @NgModule({
-  declarations: [...components, ShellComponent, SignoutButtonDirective],
+  declarations: [
+    ...components,
+    ShellComponent,
+    SignoutButtonDirective,
+    AddNewOfficeDirective,
+  ],
   imports: [...modules],
   exports: [...components, ...modules],
 })
