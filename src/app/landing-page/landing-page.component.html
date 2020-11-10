@@ -6,6 +6,8 @@
 <!--Show go to home page if a user is already authenticated-->
 <div *ngIf="afAuth.authState | async">
   <div class="container home-button">
-    <button mat-raised-button color="primary">Go To Home Page</button>
+    <button mat-raised-button color="primary" routerLink="/home">
+      Go To Home Page
+    </button>
   </div>
 </div>

@@ -21,6 +21,8 @@ import { AddNewOfficeDirective } from './shell/directives/add-new-office.directi
 
 const components = [ShellComponent];
 
+const directives = [SignoutButtonDirective, AddNewOfficeDirective];
+
 const modules = [
   CommonModule,
   MatToolbarModule,
@@ -43,13 +45,8 @@ const modules = [
 ];
 
 @NgModule({
-  declarations: [
-    ...components,
-    ShellComponent,
-    SignoutButtonDirective,
-    AddNewOfficeDirective,
-  ],
+  declarations: [...components, ...directives],
   imports: [...modules],
-  exports: [...components, ...modules],
+  exports: [...components, ...modules, ...directives],
 })
 export class SharedModule {}

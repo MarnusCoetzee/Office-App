@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { Office } from 'src/app/model/datamodels';
 import { DatabaseService } from '../../services/database.service';
+import { CreateNewOfficeDialogComponent } from '../dialogs/create-new-office-dialog/create-new-office-dialog.component';
 @Component({
   selector: 'app-all-offices',
   templateUrl: './all-offices.component.html',
@@ -13,7 +15,7 @@ export class AllOfficesComponent implements OnInit {
   offices: Office[];
   officesSubscription: Subscription;
 
-  constructor(private dbService: DatabaseService) {}
+  constructor(private dbService: DatabaseService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     // start loading
@@ -28,6 +30,10 @@ export class AllOfficesComponent implements OnInit {
         // stop loading
         this.isLoading = false;
       });
+  }
+
+  onClickOpenAddOfficeDialog() {
+    this.dialog.open(CreateNewOfficeDialogComponent);
   }
 
   ngOnDestroy(): void {

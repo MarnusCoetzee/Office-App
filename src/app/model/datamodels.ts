@@ -7,6 +7,7 @@ export interface Office {
   tellNumber: string;
   maxOfficeOccupants: number;
   officeColor: string;
+  totalEmployees: number;
 }
 
 export interface Employee {

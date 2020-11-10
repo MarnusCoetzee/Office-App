@@ -47,6 +47,7 @@ export class DatabaseService {
       .set({
         ...office,
         ownerId: user.uid,
+        totalEmployees: 0,
       });
   }
 

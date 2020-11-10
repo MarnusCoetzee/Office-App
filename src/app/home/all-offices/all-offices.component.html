@@ -1,5 +1,47 @@
 <div class="container">
-  <div *ngIf="offices.length == 0"></div>
+  <!--No Offices Stored Yet, Prompt User To Add A New Office-->
+  <div *ngIf="offices?.length == 0">
+    <div class="box">
+      <mat-card>
+        <mat-card-title>No Offices Yet</mat-card-title>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="onClickOpenAddOfficeDialog()"
+        >
+          Add First Office
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-card>
+    </div>
+  </div>
 
-  <div *ngIf="offices.length > 0"></div>
+  <!--Show all offices that a user owns-->
+  <div *ngIf="offices?.length > 0">
+    <div class="offices_block">
+      <div *ngFor="let office of offices">
+        <div class="office_container">
+          <div class="col left-col">
+            <mat-icon>groups</mat-icon>
+            <p>{{ office.totalEmployees }}/{{ office.maxOfficeOccupants }}</p>
+          </div>
+          <div class="col center-col">
+            <h4>{{ office.name }}</h4>
+            <p>{{ office.location }}</p>
+            <p style="color: lightskyblue; font-weight: 400">
+              {{ office.email }}
+            </p>
+          </div>
+          <div class="col right-col">
+            <button mat-icon-button>
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <p style="color: lightskyblue; font-weight: 400">
+              {{ office.tellNumber }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

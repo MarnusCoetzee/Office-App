@@ -1,0 +1,75 @@
+.box mat-card {
+  margin-top: 5vh;
+}
+
+.box mat-card-title {
+  text-align: center;
+}
+
+.box button {
+  width: 50%;
+  margin-right: 25%;
+  margin-left: 25%;
+  height: 46px;
+}
+
+.offices_block {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.office_container {
+  display: flex;
+  flex-wrap: nowrap;
+  min-height: 50px;
+  background-color: whitesmoke;
+  width: 90vw;
+  margin: 5px 5px;
+  border-radius: 7.5px;
+  box-shadow: 2px 2px 2px 2px #ccc;
+}
+
+.left-col {
+  background-image: linear-gradient(#68c5df, #0877ae);
+  flex: 1;
+  text-align: center;
+  border-radius: 7.5px 0px 0px 7.5px;
+  mat-icon {
+    color: white;
+    font-size: 38px;
+    margin-left: -15px;
+    margin-top: 2vh;
+  }
+  p {
+    font-size: large;
+    font-weight: 500;
+    color: white;
+    margin-top: -10px;
+  }
+}
+
+.center-col {
+  flex: 3;
+  h4 {
+    font-weight: 500;
+    margin-top: 5px;
+  }
+  p {
+    font-weight: 200;
+  }
+}
+
+.right-col {
+  flex: 2;
+  button {
+    float: right;
+    margin-right: -10px;
+  }
+  p {
+    position: absolute;
+    bottom: 0;
+  }
+}

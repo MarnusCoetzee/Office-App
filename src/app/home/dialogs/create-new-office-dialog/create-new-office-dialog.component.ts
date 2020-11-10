@@ -68,6 +68,7 @@ export class CreateNewOfficeDialogComponent implements OnInit {
       location: this.officeDetailsForm.value.officeAddress,
       maxOfficeOccupants: this.officeDetailsForm.value.maxOccupants,
       officeColor: this.selectedColour,
+      totalEmployees: 0,
     };
 
     this.databaseService
