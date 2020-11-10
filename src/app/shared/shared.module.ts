@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ShellComponent } from './shell/shell.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SignoutButtonDirective } from './shell/directives/signout-button.directive';
 
 const components = [ShellComponent];
 
@@ -35,7 +36,7 @@ const modules = [
 ];
 
 @NgModule({
-  declarations: [...components, ShellComponent],
+  declarations: [...components, ShellComponent, SignoutButtonDirective],
   imports: [...modules],
   exports: [...components, ...modules],
 })

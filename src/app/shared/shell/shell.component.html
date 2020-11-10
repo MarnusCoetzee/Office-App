@@ -29,6 +29,7 @@
         routerLink="/"
         *ngIf="afAuth.authState | async"
         (click)="drawer.close()"
+        appSignoutButton
         >Logout</a
       >
     </mat-nav-list>
@@ -52,7 +53,13 @@
         <a mat-button routerLink="/" *ngIf="!(afAuth.authState | async)"
           >Login</a
         >
-        <a mat-button routerLink="/" *ngIf="afAuth.authState | async">Logout</a>
+        <a
+          mat-button
+          routerLink="/"
+          *ngIf="afAuth.authState | async"
+          appSignoutButton
+          >Logout</a
+        >
         <a
           mat-button
           routerLink="/login"

@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-
+import * as firebase from 'firebase/app';
 @Injectable({
   providedIn: 'root',
 })
@@ -37,7 +37,26 @@ export class AuthService {
 
   // function that allows a user to sign in with google
   async signInWithGoogleAuthProvider() {
-    console.log('Google Sign In Clicked!');
+    await this.afAuth
+      .signInWithPopup(new firebase.default.auth.GoogleAuthProvider())
+      .then(async (userRef) => {
+        // create instance in db with uid
+        const uid = await userRef.user.uid;
+        const email = await userRef.user.email;
+        this.db.collection('users').doc(uid).set({
+          uid,
+          email,
+        });
+      })
+      .then(() => {
+        // route user to home page
+        this.router.navigate(['home']);
+      })
+      .catch((error) => {
+        console.log(error);
+        this.presentSnackbar();
+        return;
+      });
   }
 
   // function that allows a user to sign in anonymously
@@ -55,6 +74,17 @@ export class AuthService {
         // route user to home page
         this.router.navigate(['home']);
       })
+      .catch((error) => {
+        console.log(error);
+        this.presentSnackbar();
+        return;
+      });
+  }
+
+  async signout() {
+    await this.afAuth
+      .signOut()
+      .then(() => this.router.navigate(['']))
       .catch((error) => {
         console.log(error);
         this.presentSnackbar();
