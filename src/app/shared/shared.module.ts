@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 import { ShellComponent } from './shell/shell.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignoutButtonDirective } from './shell/directives/signout-button.directive';
@@ -36,6 +37,7 @@ const modules = [
   MatSnackBarModule,
   MatDialogModule,
   MatProgressSpinnerModule,
+  MatSelectModule,
   FormsModule,
   ReactiveFormsModule,
 ];

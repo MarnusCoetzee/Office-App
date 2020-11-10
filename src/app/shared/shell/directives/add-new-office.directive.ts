@@ -11,6 +11,9 @@ export class AddNewOfficeDirective {
   onClick() {
     const dialogConfig = new MatDialogConfig();
 
-    this.dialog.open(CreateNewOfficeDialogComponent);
+    dialogConfig.minHeight = '400px';
+    dialogConfig.minWidth = '300px';
+
+    this.dialog.open(CreateNewOfficeDialogComponent, dialogConfig);
   }
 }
