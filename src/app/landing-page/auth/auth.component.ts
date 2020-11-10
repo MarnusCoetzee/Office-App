@@ -87,7 +87,11 @@ export class AuthComponent implements OnInit {
         await this.authService.signUpWithEmailAndPassword(email, password);
       }
       if (this.isPasswordReset) {
+        this.authService.resetPassword(email);
         this.serverMessage = 'Check your email';
+        setTimeout(() => {
+          this.serverMessage = '';
+        }, 4000);
       }
     } catch (err) {
       this.serverMessage = err;
