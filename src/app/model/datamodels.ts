@@ -13,3 +13,8 @@ export interface Employee {
   lastName: string;
   employeeId: string;
 }
+
+export interface User {
+  email: string;
+  uid: string;
+}

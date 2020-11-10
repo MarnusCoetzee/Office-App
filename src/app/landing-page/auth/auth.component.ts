@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -19,7 +20,11 @@ export class AuthComponent implements OnInit {
 
   serverMessage: string;
 
-  constructor(private afAuth: AngularFireAuth, private fb: FormBuilder) {}
+  constructor(
+    private afAuth: AngularFireAuth,
+    private fb: FormBuilder,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     // Initialise the form for email + password login
@@ -76,8 +81,10 @@ export class AuthComponent implements OnInit {
 
     try {
       if (this.isLogin) {
+        this.authService.loginWithEmailAndPassword(email, password);
       }
       if (this.isSignup) {
+        await this.authService.signUpWithEmailAndPassword(email, password);
       }
       if (this.isPasswordReset) {
         this.serverMessage = 'Check your email';
@@ -86,5 +93,9 @@ export class AuthComponent implements OnInit {
       this.serverMessage = err;
     }
     this.loading = false;
+  }
+
+  async onClickSignInAnonymously() {
+    this.authService.signInAnonymously();
   }
 }

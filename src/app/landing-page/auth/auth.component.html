@@ -23,7 +23,7 @@
     </div>
 
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <mat-form-field [color]="email.valid && 'accent'">
+      <mat-form-field [color]="email.valid && 'secondary'">
         <input
           matInput
           formControlName="email"
@@ -38,7 +38,7 @@
       </mat-form-field>
 
       <mat-form-field
-        [color]="email.valid && 'accent'"
+        [color]="email.valid && 'secondary'"
         *ngIf="!isPasswordReset"
       >
         <input
@@ -55,7 +55,7 @@
       </mat-form-field>
 
       <mat-form-field
-        [color]="passwordDoesMatch ? 'accent' : 'warn'"
+        [color]="passwordDoesMatch ? 'secondary' : 'warn'"
         *ngIf="isSignup"
       >
         <input
@@ -101,11 +101,11 @@
       Forgot password?
     </button>
 
-    <div class="social_logins">
+    <div class="social_logins" *ngIf="!isPasswordReset">
       <button mat-raised-button appGoogleSignin>
         <img src="../../../assets/google-logo.svg" />
       </button>
-      <button mat-raised-button>Anonymous Signin</button>
+      <button mat-raised-button appAnonSignin>Anonymous Signin</button>
     </div>
   </mat-card>
 </div>

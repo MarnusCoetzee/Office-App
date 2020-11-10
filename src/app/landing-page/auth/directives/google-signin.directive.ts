@@ -1,13 +1,14 @@
 import { Directive, HostListener } from '@angular/core';
+import { AuthService } from '../../../services/auth.service';
 
 @Directive({
   selector: '[appGoogleSignin]',
 })
 export class GoogleSigninDirective {
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   @HostListener('click')
   onClick() {
-    console.log('Google Sign In');
+    this.authService.signInWithGoogleAuthProvider();
   }
 }
