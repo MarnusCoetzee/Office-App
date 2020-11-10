@@ -1,0 +1,150 @@
+Date : 2020-11-10 18:40:42
+Directory : c:\Users\Marnus Coetzee\Desktop\Angular\officeapp
+Total : 95 files,  20489 codes, 205 comments, 369 blanks, all 21063 lines
+
+Languages
++--------------+------------+------------+------------+------------+------------+
+| language     | files      | code       | comment    | blank      | total      |
++--------------+------------+------------+------------+------------+------------+
+| JSON         |         12 |     18,602 |         53 |          8 |     18,663 |
+| TypeScript   |         51 |      1,222 |        136 |        257 |      1,615 |
+| HTML         |         13 |        362 |          6 |         37 |        405 |
+| SCSS         |         13 |        218 |          1 |         44 |        263 |
+| JavaScript   |          2 |         57 |          8 |          4 |         69 |
+| Markdown     |          1 |         14 |          0 |         14 |         28 |
+| EditorConfig |          1 |         12 |          1 |          4 |         17 |
+| XML          |          1 |          1 |          0 |          0 |          1 |
+| Log          |          1 |          1 |          0 |          1 |          2 |
++--------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                       | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                          |         95 |     20,489 |        205 |        369 |     21,063 |
+| e2e                                                                                                                                        |          4 |         68 |          8 |         11 |         87 |
+| e2e\src                                                                                                                                    |          2 |         27 |          1 |          8 |         36 |
+| src                                                                                                                                        |         77 |      1,835 |        142 |        331 |      2,308 |
+| src\app                                                                                                                                    |         68 |      1,691 |         71 |        307 |      2,069 |
+| src\app\home                                                                                                                               |         22 |        519 |          8 |         94 |        621 |
+| src\app\home\all-offices                                                                                                                   |          4 |        207 |          8 |         26 |        241 |
+| src\app\home\dialogs                                                                                                                       |         12 |        251 |          0 |         49 |        300 |
+| src\app\home\dialogs\create-new-office-dialog                                                                                              |          4 |        187 |          0 |         23 |        210 |
+| src\app\home\dialogs\delete-office-dialog                                                                                                  |          4 |         32 |          0 |         13 |         45 |
+| src\app\home\dialogs\edit-office-dialog                                                                                                    |          4 |         32 |          0 |         13 |         45 |
+| src\app\landing-page                                                                                                                       |         12 |        345 |         11 |         72 |        428 |
+| src\app\landing-page\auth                                                                                                                  |          6 |        268 |          9 |         52 |        329 |
+| src\app\landing-page\auth\auth-directives                                                                                                  |          2 |         24 |          0 |          6 |         30 |
+| src\app\model                                                                                                                              |          1 |         20 |          0 |          3 |         23 |
+| src\app\offices                                                                                                                            |         10 |        153 |          3 |         41 |        197 |
+| src\app\offices\view-office                                                                                                                |          4 |        101 |          3 |         21 |        125 |
+| src\app\services                                                                                                                           |          6 |        231 |         43 |         34 |        308 |
+| src\app\shared                                                                                                                             |         11 |        326 |          4 |         46 |        376 |
+| src\app\shared\shell                                                                                                                       |          6 |        188 |          3 |         30 |        221 |
+| src\app\shared\shell\directives                                                                                                            |          2 |         28 |          0 |          7 |         35 |
+| src\app\shared\splash-screen                                                                                                               |          4 |         90 |          1 |         11 |        102 |
+| src\assets                                                                                                                                 |          1 |          1 |          0 |          0 |          1 |
+| src\environments                                                                                                                           |          2 |         26 |         11 |          4 |         41 |
++--------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------------------------------------------+--------------+------------+------------+------------+------------+
+| filename                                                                                                                                   | language     | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------------------+--------------+------------+------------+------------+------------+
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\.editorconfig                                                                            | EditorConfig |         12 |          1 |          4 |         17 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\README.md                                                                                | Markdown     |         14 |          0 |         14 |         28 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\angular.json                                                                             | JSON         |        119 |         25 |          0 |        144 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\debug.log                                                                                | Log          |          1 |          0 |          1 |          2 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\e2e\protractor.conf.js                                                                   | JavaScript   |         28 |          6 |          2 |         36 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\e2e\src\app.e2e-spec.ts                                                                  | TypeScript   |         18 |          1 |          5 |         24 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\e2e\src\app.po.ts                                                                        | TypeScript   |          9 |          0 |          3 |         12 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\e2e\tsconfig.json                                                                        | JSON         |         13 |          1 |          1 |         15 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\firebase.json                                                                            | JSON         |         28 |          0 |          0 |         28 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\karma.conf.js                                                                            | JavaScript   |         29 |          2 |          2 |         33 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\ngsw-config.json                                                                         | JSON         |         13 |         18 |          0 |         31 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\package-lock.json                                                                        | JSON         |     18,098 |          0 |          1 |     18,099 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\package.json                                                                             | JSON         |         59 |          0 |          1 |         60 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\app-routing.module.ts                                                            | TypeScript   |         25 |          0 |          3 |         28 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\app.component.html                                                               | HTML         |          4 |          0 |          1 |          5 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\app.component.scss                                                               | SCSS         |          0 |          0 |          1 |          1 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\app.component.spec.ts                                                            | TypeScript   |         31 |          0 |          5 |         36 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\app.component.ts                                                                 | TypeScript   |          9 |          0 |          2 |         11 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\app.module.ts                                                                    | TypeScript   |         28 |          2 |          5 |         35 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\all-offices\all-offices.component.html                                      | HTML         |         58 |          2 |          2 |         62 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\all-offices\all-offices.component.scss                                      | SCSS         |         78 |          0 |          9 |         87 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\all-offices\all-offices.component.spec.ts                                   | TypeScript   |         20 |          0 |          6 |         26 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\all-offices\all-offices.component.ts                                        | TypeScript   |         51 |          6 |          9 |         66 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\dialogs\create-new-office-dialog\create-new-office-dialog.component.html    | HTML         |         70 |          0 |          4 |         74 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\dialogs\create-new-office-dialog\create-new-office-dialog.component.scss    | SCSS         |         11 |          0 |          2 |         13 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\dialogs\create-new-office-dialog\create-new-office-dialog.component.spec.ts | TypeScript   |         20 |          0 |          6 |         26 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\dialogs\create-new-office-dialog\create-new-office-dialog.component.ts      | TypeScript   |         86 |          0 |         11 |         97 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\dialogs\delete-office-dialog\delete-office.component.html                   | HTML         |          1 |          0 |          1 |          2 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\dialogs\delete-office-dialog\delete-office.component.scss                   | SCSS         |          0 |          0 |          1 |          1 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\dialogs\delete-office-dialog\delete-office.component.spec.ts                | TypeScript   |         20 |          0 |          6 |         26 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\dialogs\delete-office-dialog\delete-office.component.ts                     | TypeScript   |         11 |          0 |          5 |         16 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\dialogs\edit-office-dialog\edit-office.component.html                       | HTML         |          1 |          0 |          1 |          2 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\dialogs\edit-office-dialog\edit-office.component.scss                       | SCSS         |          0 |          0 |          1 |          1 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\dialogs\edit-office-dialog\edit-office.component.spec.ts                    | TypeScript   |         20 |          0 |          6 |         26 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\dialogs\edit-office-dialog\edit-office.component.ts                         | TypeScript   |         11 |          0 |          5 |         16 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\home-routing.module.ts                                                      | TypeScript   |          9 |          0 |          3 |         12 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\home.component.html                                                         | HTML         |          1 |          0 |          1 |          2 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\home.component.scss                                                         | SCSS         |          0 |          0 |          1 |          1 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\home.component.spec.ts                                                      | TypeScript   |         20 |          0 |          6 |         26 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\home.component.ts                                                           | TypeScript   |         11 |          0 |          5 |         16 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\home\home.module.ts                                                              | TypeScript   |         20 |          0 |          3 |         23 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\landing-page\auth\auth-directives\anon-signin.directive.ts                       | TypeScript   |         12 |          0 |          3 |         15 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\landing-page\auth\auth-directives\google-signin.directive.ts                     | TypeScript   |         12 |          0 |          3 |         15 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\landing-page\auth\auth.component.html                                            | HTML         |        102 |          0 |         16 |        118 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\landing-page\auth\auth.component.scss                                            | SCSS         |         41 |          0 |          8 |         49 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\landing-page\auth\auth.component.spec.ts                                         | TypeScript   |         20 |          0 |          6 |         26 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\landing-page\auth\auth.component.ts                                              | TypeScript   |         81 |          9 |         16 |        106 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\landing-page\landing-page-routing.module.ts                                      | TypeScript   |          9 |          0 |          4 |         13 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\landing-page\landing-page.component.html                                         | HTML         |         10 |          2 |          2 |         14 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\landing-page\landing-page.component.scss                                         | SCSS         |          9 |          0 |          2 |         11 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\landing-page\landing-page.component.spec.ts                                      | TypeScript   |         20 |          0 |          6 |         26 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\landing-page\landing-page.component.ts                                           | TypeScript   |         11 |          0 |          3 |         14 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\landing-page\landing-page.module.ts                                              | TypeScript   |         18 |          0 |          3 |         21 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\model\datamodels.ts                                                              | TypeScript   |         20 |          0 |          3 |         23 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\offices\offices-routing.module.ts                                                | TypeScript   |          9 |          0 |          4 |         13 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\offices\offices.component.html                                                   | HTML         |          1 |          0 |          1 |          2 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\offices\offices.component.scss                                                   | SCSS         |          0 |          0 |          1 |          1 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\offices\offices.component.spec.ts                                                | TypeScript   |         20 |          0 |          6 |         26 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\offices\offices.component.ts                                                     | TypeScript   |         11 |          0 |          5 |         16 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\offices\offices.module.ts                                                        | TypeScript   |         11 |          0 |          3 |         14 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\offices\view-office\view-office.component.html                                   | HTML         |         19 |          2 |          2 |         23 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\offices\view-office\view-office.component.scss                                   | SCSS         |         27 |          0 |          5 |         32 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\offices\view-office\view-office.component.spec.ts                                | TypeScript   |         20 |          0 |          6 |         26 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\offices\view-office\view-office.component.ts                                     | TypeScript   |         35 |          1 |          8 |         44 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\services\auth.service.spec.ts                                                    | TypeScript   |         12 |          0 |          5 |         17 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\services\auth.service.ts                                                         | TypeScript   |        105 |         13 |          8 |        126 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\services\database.service.spec.ts                                                | TypeScript   |         12 |          0 |          5 |         17 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\services\database.service.ts                                                     | TypeScript   |         54 |         30 |          8 |         92 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\services\pwa.service.spec.ts                                                     | TypeScript   |         12 |          0 |          5 |         17 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\services\pwa.service.ts                                                          | TypeScript   |         36 |          0 |          3 |         39 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\shared\shared.module.ts                                                          | TypeScript   |         48 |          0 |          5 |         53 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\shared\shell\directives\add-new-office.directive.ts                              | TypeScript   |         16 |          0 |          4 |         20 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\shared\shell\directives\signout-button.directive.ts                              | TypeScript   |         12 |          0 |          3 |         15 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\shared\shell\shell.component.html                                                | HTML         |         77 |          0 |          4 |         81 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\shared\shell\shell.component.scss                                                | SCSS         |         40 |          0 |         10 |         50 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\shared\shell\shell.component.spec.ts                                             | TypeScript   |         20 |          0 |          6 |         26 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\shared\shell\shell.component.ts                                                  | TypeScript   |         23 |          3 |          3 |         29 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\shared\splash-screen\splash-screen.component.html                                | HTML         |          0 |          0 |          1 |          1 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\shared\splash-screen\splash-screen.component.scss                                | SCSS         |          0 |          0 |          1 |          1 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\shared\splash-screen\splash-screen.component.spec.ts                             | TypeScript   |         20 |          0 |          6 |         26 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\app\shared\splash-screen\splash-screen.component.ts                                  | TypeScript   |         70 |          1 |          3 |         74 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\assets\google-logo.svg                                                               | XML          |          1 |          0 |          0 |          1 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\environments\environment.prod.ts                                                     | TypeScript   |         13 |          0 |          1 |         14 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\environments\environment.ts                                                          | TypeScript   |         13 |         11 |          3 |         27 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\index.html                                                                           | HTML         |         18 |          0 |          1 |         19 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\main.ts                                                                              | TypeScript   |          9 |          0 |          4 |         13 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\manifest.webmanifest                                                                 | JSON         |         59 |          0 |          1 |         60 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\polyfills.ts                                                                         | TypeScript   |          1 |         55 |          8 |         64 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\styles.scss                                                                          | SCSS         |         12 |          1 |          2 |         15 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\src\test.ts                                                                              | TypeScript   |         18 |          4 |          4 |         26 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\tsconfig.app.json                                                                        | JSON         |         14 |          1 |          1 |         16 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\tsconfig.base.json                                                                       | JSON         |         19 |          1 |          1 |         21 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\tsconfig.json                                                                            | JSON         |         11 |          6 |          1 |         18 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\tsconfig.spec.json                                                                       | JSON         |         17 |          1 |          1 |         19 |
+| c:\Users\Marnus Coetzee\Desktop\Angular\officeapp\tslint.json                                                                              | JSON         |        152 |          0 |          0 |        152 |
+| Total                                                                                                                                      |              |     20,489 |        205 |        369 |     21,063 |
++--------------------------------------------------------------------------------------------------------------------------------------------+--------------+------------+------------+------------+------------+

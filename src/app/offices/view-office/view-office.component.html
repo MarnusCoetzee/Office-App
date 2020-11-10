@@ -1,0 +1,22 @@
+<!--Show Loading spinner while waiting for firestore information-->
+<div *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<!--Display information after loading finished-->
+<div *ngIf="!isLoading">
+  <div class="top-background">
+    <div class="top-row">
+      <button mat-icon-button (click)="onClickNavigateBack()">
+        <mat-icon>keyboard_backspace</mat-icon>
+      </button>
+      <h1>{{ officeDetails.name }}</h1>
+    </div>
+    <div class="middle-row">
+      <p>Address: {{ officeDetails.location }}</p>
+      <p>Email: {{ officeDetails.email }}</p>
+      <p>Office Tell: {{ officeDetails.tellNumber }}</p>
+      <p>Max Capacity: {{ officeDetails.maxOfficeOccupants }}</p>
+    </div>
+  </div>
+</div>

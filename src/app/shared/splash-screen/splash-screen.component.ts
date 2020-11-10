@@ -18,7 +18,10 @@ import { PwaService } from '../../services/pwa.service';
   selector: 'app-splash-screen',
   template: `
     <div class="splash-screen" *ngIf="show" @fadeOut>
-      // Your custom splash screen design
+      <!-- <div class="splash_image">
+          <h1>GetFixed</h1>
+          <img src="../assets/toolicon.png">
+        </div> -->
     </div>
   `,
   animations: [
@@ -32,6 +35,11 @@ import { PwaService } from '../../services/pwa.service';
   ],
   styles: [
     `
+      .splash_image {
+        display: grid;
+        place-content: center;
+      }
+      ,
       .splash-screen {
         position: absolute;
         top: 0;
@@ -39,13 +47,16 @@ import { PwaService } from '../../services/pwa.service';
         bottom: 0;
         left: 0;
         z-index: 9999;
+        background-color: whitesmoke;
+        width: 100vw;
+        height: 100vh;
       }
     `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SplashScreenComponent implements OnInit {
-  show: boolean = true;
+  show = true;
 
   constructor(
     private pwaService: PwaService,

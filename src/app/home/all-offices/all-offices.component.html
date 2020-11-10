@@ -37,6 +37,10 @@
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="onClickNavigateOffice(office.id)">
+                <mat-icon>work_outline</mat-icon>
+                <span>View Office</span>
+              </button>
               <button mat-menu-item (click)="onClickOpenEditOfficeDialog()">
                 <mat-icon>edit</mat-icon>
                 <span>Edit</span>

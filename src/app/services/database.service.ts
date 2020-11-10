@@ -36,6 +36,15 @@ export class DatabaseService {
   }
 
   /**
+   * Get Single Office From DB
+   * @param office
+   * @param id
+   */
+  getSingleOffice(officeId: string) {
+    return this.db.collection('offices').doc(officeId).valueChanges();
+  }
+
+  /**
    * Create a new office data object for the logged in user
    * @param office
    */

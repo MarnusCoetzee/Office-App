@@ -29,12 +29,10 @@ export class PwaService {
         timeout(waitFor),
         catchError(() => of(false))
       );
-
       return fromPromise(this.swUpdate.checkForUpdate()).pipe(
         switchMap(() => available$)
       );
     }
-
     return timer(waitFor).pipe(mapTo(false));
   }
 }

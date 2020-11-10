@@ -1,0 +1,31 @@
+.top-background {
+  background-image: linear-gradient(#0877ae, #68c5df);
+  min-height: 150px;
+  padding-bottom: 1rem;
+  width: 100vw;
+  border-radius: 0px 0px 15px 15px;
+}
+
+.top-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.top-row mat-icon {
+  font-size: 40px;
+  color: white;
+}
+
+.top-row h1 {
+  margin-left: 1rem;
+  margin-top: 0.25rem;
+  color: white;
+}
+
+.middle-row {
+  margin-left: 3.5rem;
+  p {
+    color: white;
+    font-size: 16px;
+  }
+}

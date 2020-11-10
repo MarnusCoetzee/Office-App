@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Office } from 'src/app/model/datamodels';
 import { DatabaseService } from '../../services/database.service';
@@ -17,7 +18,11 @@ export class AllOfficesComponent implements OnInit {
   offices: Office[];
   officesSubscription: Subscription;
 
-  constructor(private dbService: DatabaseService, private dialog: MatDialog) {}
+  constructor(
+    private dbService: DatabaseService,
+    private dialog: MatDialog,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     // start loading
@@ -44,6 +49,10 @@ export class AllOfficesComponent implements OnInit {
 
   onClickOpenDeleteOfficeDialog() {
     this.dialog.open(DeleteOfficeComponent);
+  }
+
+  onClickNavigateOffice(id: string) {
+    this.router.navigate(['office', id]);
   }
 
   ngOnDestroy(): void {
