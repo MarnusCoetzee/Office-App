@@ -1,5 +1,5 @@
 .container {
-  margin-top: 10vh;
+  margin-top: 7.5vh;
   text-align: center;
 }
 
@@ -37,4 +37,13 @@ div.mat-form-field-wrapper {
   flex-direction: row;
   gap: 10px;
   margin-top: 1rem;
+}
+
+.social_logins button {
+  width: 49vw;
+  height: 46px;
+}
+
+.social_logins img {
+  max-height: 36px;
 }
