@@ -22,13 +22,6 @@
         routerLink="/"
         *ngIf="afAuth.authState | async"
         (click)="drawer.close()"
-        >Offices</a
-      >
-      <a
-        mat-list-item
-        routerLink="/"
-        *ngIf="afAuth.authState | async"
-        (click)="drawer.close()"
         appSignoutButton
         >Logout</a
       >
@@ -51,7 +44,7 @@
         style="margin-right: 50px"
         type="button"
         appAddNewOffice
-        aria-label="Add New Board"
+        aria-label="Add New Office"
         mat-icon-button
         *ngIf="(isHandset$ | async) && (afAuth.authState | async)"
       >

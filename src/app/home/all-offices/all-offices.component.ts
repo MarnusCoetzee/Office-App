@@ -4,6 +4,8 @@ import { Subscription } from 'rxjs';
 import { Office } from 'src/app/model/datamodels';
 import { DatabaseService } from '../../services/database.service';
 import { CreateNewOfficeDialogComponent } from '../dialogs/create-new-office-dialog/create-new-office-dialog.component';
+import { DeleteOfficeComponent } from './delete-office-dialog/delete-office.component';
+import { EditOfficeComponent } from './edit-office-dialog/edit-office.component';
 @Component({
   selector: 'app-all-offices',
   templateUrl: './all-offices.component.html',
@@ -34,6 +36,14 @@ export class AllOfficesComponent implements OnInit {
 
   onClickOpenAddOfficeDialog() {
     this.dialog.open(CreateNewOfficeDialogComponent);
+  }
+
+  onClickOpenEditOfficeDialog() {
+    this.dialog.open(EditOfficeComponent);
+  }
+
+  onClickOpenDeleteOfficeDialog() {
+    this.dialog.open(DeleteOfficeComponent);
   }
 
   ngOnDestroy(): void {

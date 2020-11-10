@@ -72,4 +72,15 @@
     position: absolute;
     bottom: 0;
   }
+  mat-icon {
+    float: right;
+  }
+}
+
+.button-text {
+  float: left;
+  margin-left: 10px;
+}
+.button-icon {
+  display: block;
 }

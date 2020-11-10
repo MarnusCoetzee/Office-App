@@ -7,12 +7,16 @@ import { AllOfficesComponent } from './all-offices/all-offices.component';
 import { CreateNewOfficeDialogComponent } from './dialogs/create-new-office-dialog/create-new-office-dialog.component';
 import { SharedModule } from '../shared/shared.module';
 import { AddNewOfficeDirective } from '../shared/shell/directives/add-new-office.directive';
+import { EditOfficeComponent } from './all-offices/edit-office-dialog/edit-office.component';
+import { DeleteOfficeComponent } from './all-offices/delete-office-dialog/delete-office.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     AllOfficesComponent,
     CreateNewOfficeDialogComponent,
+    EditOfficeComponent,
+    DeleteOfficeComponent,
   ],
   imports: [CommonModule, HomeRoutingModule, SharedModule],
 })
