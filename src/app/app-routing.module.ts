@@ -9,8 +9,15 @@ const routes: Routes = [
         (m) => m.LandingPageModule
       ),
   },
-  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
-  { path: 'offices', loadChildren: () => import('./offices/offices.module').then(m => m.OfficesModule) },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
+  },
+  {
+    path: 'offices',
+    loadChildren: () =>
+      import('./offices/offices.module').then((m) => m.OfficesModule),
+  },
 ];
 
 @NgModule({

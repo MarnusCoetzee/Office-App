@@ -1,0 +1,40 @@
+.container {
+  margin-top: 10vh;
+  text-align: center;
+}
+
+mat-card {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.server-error {
+  margin: 8px 0;
+}
+
+input {
+  height: 2em;
+  div.mat-form-field-infix {
+    padding: 0.3em 0;
+    input.mat-input-element {
+      vertical-align: top;
+    }
+  }
+}
+div.mat-form-field-wrapper {
+  padding-bottom: 1.15em;
+}
+
+.social_logins {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 1rem;
+}
