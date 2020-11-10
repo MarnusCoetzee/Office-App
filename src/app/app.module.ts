@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment.prod';
 // importing shared module
 import { SharedModule } from './shared/shared.module';
 import { SplashScreenComponent } from './shared/splash-screen/splash-screen.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [AppComponent, SplashScreenComponent],
@@ -25,6 +26,7 @@ import { SplashScreenComponent } from './shared/splash-screen/splash-screen.comp
     AngularFirestoreModule,
     AngularFireAuthModule,
     SharedModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent],
