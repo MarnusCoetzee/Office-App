@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "office-app-f5811": {
+      "hosting": {
+        "officeapp": [
+          "office-app-f5811"
+        ]
+      }
+    }
+  }
+}
