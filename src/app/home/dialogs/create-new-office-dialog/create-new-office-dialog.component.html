@@ -1,60 +1,73 @@
 <h2 mat-dialog-title>Add Office</h2>
 
-<mat-dialog-content [formGroup]="officeDetailsForm">
-  <mat-form-field>
-    <input
-      matInput
-      placeholder="Office Name"
-      type="text"
-      formControlName="officeName"
-    />
-  </mat-form-field>
-  <mat-form-field>
-    <input
-      matInput
-      placeholder="Email Address"
-      type="email"
-      formControlName="officeEmailAddress"
-    />
-  </mat-form-field>
-  <mat-form-field>
-    <input
-      matInput
-      placeholder="Office Tell"
-      type="tel"
-      formControlName="officeTellNumber"
-    />
-  </mat-form-field>
-  <mat-form-field>
-    <textarea
-      rows="3"
-      matInput
-      placeholder="Address"
-      type="text"
-      formControlName="officeAddress"
-    ></textarea>
-  </mat-form-field>
-  <mat-form-field>
-    <input
-      matInput
-      placeholder="Max number of occupants"
-      type="number"
-      formControlName="maxOccupants"
-    />
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Office Colour</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let color of officeColours" [value]="color.value">
-        {{ color.viewValue }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-</mat-dialog-content>
+<div *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
 
-<div class="actions">
-  <mat-dialog-actions>
-    <button mat-raised-button color="primary">Save</button>
-    <button mat-raised-button>Cancel</button>
-  </mat-dialog-actions>
+<div *ngIf="!isLoading">
+  <mat-dialog-content [formGroup]="officeDetailsForm">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Office Name"
+        type="text"
+        formControlName="officeName"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Email Address"
+        type="email"
+        formControlName="officeEmailAddress"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Office Tell"
+        type="tel"
+        formControlName="officeTellNumber"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        rows="3"
+        matInput
+        placeholder="Address"
+        type="text"
+        formControlName="officeAddress"
+      ></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Max number of occupants"
+        type="number"
+        formControlName="maxOccupants"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Office Colour</mat-label>
+      <mat-select [(value)]="selectedColour">
+        <mat-option *ngFor="let color of officeColours" [value]="color.value">
+          {{ color.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <div class="actions">
+    <mat-dialog-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="onClickSaveNewOffice()"
+        [disabled]="officeDetailsForm.invalid"
+      >
+        Save
+      </button>
+      <button mat-raised-button (click)="onClickCancel()">Cancel</button>
+    </mat-dialog-actions>
+  </div>
 </div>

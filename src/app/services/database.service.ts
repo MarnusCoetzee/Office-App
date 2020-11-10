@@ -39,16 +39,14 @@ export class DatabaseService {
    * Create a new office data object for the logged in user
    * @param office
    */
-  async createNewoffice(office: Office) {
+  async createNewoffice(office: Office, id: string) {
     const user = await this.afAuth.currentUser;
-    const id = this.db.createId();
     return this.db
       .collection('offices')
       .doc(id)
       .set({
         ...office,
         ownerId: user.uid,
-        id,
       });
   }
 

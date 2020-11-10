@@ -1,5 +1,12 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Office } from 'src/app/model/datamodels';
+import { DatabaseService } from 'src/app/services/database.service';
 
 interface Colours {
   value: string;
@@ -19,9 +26,19 @@ export class CreateNewOfficeDialogComponent implements OnInit {
     { value: 'yellow', viewValue: 'Yellow' },
     { value: 'red', viewValue: 'Red' },
   ];
+  selectedColour: string;
   officeDetailsForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  isLoading: boolean;
+
+  constructor(
+    private fb: FormBuilder,
+    private dialogRef: MatDialogRef<CreateNewOfficeDialogComponent>,
+    private db: AngularFirestore,
+    private afAuth: AngularFireAuth,
+    private databaseService: DatabaseService,
+    private snackbar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     this.initOfficeForm();
@@ -38,5 +55,41 @@ export class CreateNewOfficeDialogComponent implements OnInit {
     });
   }
 
-  onClickSaveNewOffice() {}
+  async onClickSaveNewOffice() {
+    this.isLoading = true;
+    const ownerId = await (await this.afAuth.currentUser).uid;
+    const id = this.db.createId();
+    const office: Office = {
+      id,
+      name: this.officeDetailsForm.value.officeName,
+      ownerId,
+      email: this.officeDetailsForm.value.officeEmailAddress,
+      tellNumber: this.officeDetailsForm.value.officeTellNumber,
+      location: this.officeDetailsForm.value.officeAddress,
+      maxOfficeOccupants: this.officeDetailsForm.value.maxOccupants,
+      officeColor: this.selectedColour,
+    };
+
+    this.databaseService
+      .createNewoffice(office, id)
+      .then(() => {
+        this.dialogRef.close();
+        this.snackbar.open('Successfully added a new office', 'Okay', {
+          duration: 2500,
+        });
+        this.isLoading = false;
+      })
+      .catch((error) => {
+        this.snackbar.open('An error has occurred, please try again', 'Okay', {
+          duration: 2500,
+        });
+        return;
+      });
+
+    console.log(office);
+  }
+
+  onClickCancel() {
+    this.dialogRef.close();
+  }
 }
