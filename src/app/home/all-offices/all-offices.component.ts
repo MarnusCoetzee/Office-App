@@ -45,6 +45,8 @@ export class AllOfficesComponent implements OnInit {
 
   onClickOpenEditOfficeDialog(officeId: string) {
     const dialogConfig = new MatDialogConfig();
+    dialogConfig.minWidth = '350px';
+    dialogConfig.minHeight = '350px';
     dialogConfig.data = {
       officeId,
     };

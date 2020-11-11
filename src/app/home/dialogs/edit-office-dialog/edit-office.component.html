@@ -1,1 +1,82 @@
-<p>edit-office works!</p>
+<div *ngIf="isLoading">
+  <mat-spinner style="margin-top: 5vh"></mat-spinner>
+</div>
+
+<div *ngIf="!isLoading">
+  <div class="container">
+    <div class="exit-button">
+      <button mat-icon-button (click)="onClickCloseForm()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <br />
+    <div class="heading">
+      <h1>Edit Office</h1>
+    </div>
+    <div class="form-fields">
+      <form [formGroup]="editOfficeForm">
+        <mat-form-field>
+          <input matInput placeholder="Office Name" formControlName="name" />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="onClickClearFormField('name')"
+          >
+            <mat-icon>clear</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Office Email" formControlName="email" />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="onClickClearFormField('email')"
+          >
+            <mat-icon>clear</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Office Email"
+            formControlName="tellNumber"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="onClickClearFormField('tellNumber')"
+          >
+            <mat-icon>clear</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Address" formControlName="location" />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="onClickClearFormField('location')"
+          >
+            <mat-icon>clear</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Max Occupants"
+            formControlName="maxOfficeOccupants"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="onClickClearFormField('maxOfficeOccupants')"
+          >
+            <mat-icon>clear</mat-icon>
+          </button>
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="action-btn">
+      <button mat-raised-button>Save Office</button>
+    </div>
+  </div>
+</div>
