@@ -105,7 +105,6 @@ export class DatabaseService {
       .doc(staffId)
       .set({
         ...employee,
-        staffId,
       });
   }
 
@@ -140,12 +139,9 @@ export class DatabaseService {
       .doc(officeId)
       .collection('staff')
       .doc(employeeId)
-      .set(
-        {
-          ...data,
-        },
-        { merge: true }
-      );
+      .update({
+        ...data,
+      });
   }
 
   removeOfficeEmployee(officeId: string, employeeId: string) {

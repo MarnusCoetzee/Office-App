@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Employee } from 'src/app/model/datamodels';
 import { DatabaseService } from 'src/app/services/database.service';
 
 @Component({
@@ -37,8 +38,59 @@ export class EditStaffDialogComponent implements OnInit {
 
   private initForm() {
     this.staffForm = this.fb.group({
-      firstName: [''],
-      lastName: [''],
+      firstName: [this.employeeFirstName, Validators.required],
+      lastName: [this.employeeLastName, Validators.required],
     });
+  }
+
+  get firstNameFromForm(): any {
+    return this.staffForm.get('firstName');
+  }
+
+  get lastNameFromForm(): any {
+    return this.staffForm.get('lastName');
+  }
+
+  onClickClearTextField(id: string) {
+    if (id === 'firstName') {
+      this.firstNameFromForm.reset();
+    }
+    if (id === 'lastName') {
+      this.lastNameFromForm.reset();
+    }
+  }
+
+  onClickUpdateUser() {
+    this.isLoading = true;
+    const employeeId = this.employeeId;
+    const officeId = this.officeId;
+    const firstName = this.staffForm.value.firstName;
+    const lastName = this.staffForm.value.lastName;
+    const staffMember: Employee = {
+      employeeId,
+      firstName,
+      lastName,
+    };
+    this.dbService
+      .editOfficeEmployee(officeId, employeeId, staffMember)
+      .then(() => {
+        this.isLoading = false;
+        this.dialogRef.close();
+        this.snackbar.open('Successfully changed employee details', '', {
+          duration: 2000,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        this.snackbar.open('An error has occurred, please try again', '', {
+          duration: 2000,
+        });
+        this.isLoading = false;
+        return;
+      });
+  }
+
+  onClickCloseDialog() {
+    this.dialogRef.close();
   }
 }
