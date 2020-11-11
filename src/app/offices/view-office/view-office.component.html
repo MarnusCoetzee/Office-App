@@ -62,7 +62,13 @@
           <mat-menu #menu="matMenu">
             <button
               mat-menu-item
-              (click)="onClickOpenEditStaffDialog(employee.employeeId)"
+              (click)="
+                onClickOpenEditStaffDialog(
+                  employee.employeeId,
+                  employee.firstName,
+                  employee.lastName
+                )
+              "
             >
               <mat-icon>edit</mat-icon>
               <span>Edit Staff</span>
@@ -102,14 +108,26 @@
           <mat-menu #menu="matMenu">
             <button
               mat-menu-item
-              (click)="onClickOpenEditStaffDialog(employee.employeeId)"
+              (click)="
+                onClickOpenEditStaffDialog(
+                  employee.employeeId,
+                  employee.firstName,
+                  employee.lastName
+                )
+              "
             >
               <mat-icon>edit</mat-icon>
               <span>Edit Staff</span>
             </button>
             <button
               mat-menu-item
-              (click)="onClickOpenDeleteStaffDialog(employee.employeeId)"
+              (click)="
+                onClickOpenDeleteStaffDialog(
+                  employee.employeeId,
+                  employee.firstName,
+                  employee.lastName
+                )
+              "
             >
               <mat-icon>delete</mat-icon>
               <span>Remove Staff</span>

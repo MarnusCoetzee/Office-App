@@ -18,7 +18,6 @@ export class DeleteStaffDialogComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<DeleteStaffDialogComponent>,
     @Inject(MAT_DIALOG_DATA) data,
-    private db: AngularFirestore,
     private dbService: DatabaseService,
     private snackbar: MatSnackBar
   ) {

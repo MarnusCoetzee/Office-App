@@ -1,0 +1,35 @@
+.exit-button {
+  width: 100%;
+}
+.exit-button button {
+  top: 0;
+  right: 0;
+  float: right;
+}
+
+.heading {
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+.form-fields mat-form-field {
+  width: 90%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.action-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.action-btn button {
+  background-color: #0877ae;
+  font-size: larger;
+  color: white;
+  border-radius: 25px;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  margin-top: 1rem;
+}

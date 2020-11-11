@@ -114,8 +114,23 @@ export class ViewOfficeComponent implements OnInit {
   }
 
   // Open Edit Staff Dialog
-  onClickOpenEditStaffDialog(employeeId: string) {
-    this.matDialog.open(EditStaffDialogComponent);
+  onClickOpenEditStaffDialog(
+    employeeId: string,
+    firstName: string,
+    lastName: string
+  ) {
+    // get the staff ID to send to add staff dialog
+    const officeId = this.officeId;
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.minWidth = '350px';
+    dialogConfig.minHeight = '350px';
+    dialogConfig.data = {
+      employeeId,
+      officeId,
+      firstName,
+      lastName,
+    };
+    this.matDialog.open(EditStaffDialogComponent, dialogConfig);
   }
 
   // Open delete staff

@@ -1,1 +1,42 @@
-<p>edit-staff-dialog works!</p>
+<div *ngIf="isLoading">
+  <mat-spinner style="margin-top: 5vh"></mat-spinner>
+</div>
+
+<div *ngIf="!isLoading">
+  <div class="container">
+    <div class="exit-button">
+      <button mat-icon-button>
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <br />
+    <div class="heading">
+      <h1>Edit Staff</h1>
+    </div>
+    <div class="form-fields">
+      <form [formGroup]="staffForm">
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            placeholder="First Name"
+            formControlName="firstName"
+            autocomplete="off"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            placeholder="Last Name"
+            formControlName="lastName"
+            autocomplete="off"
+          />
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="action-btn">
+      <button mat-raised-button>Save Staff</button>
+    </div>
+  </div>
+</div>
