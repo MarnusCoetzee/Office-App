@@ -11,12 +11,10 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
 import { environment } from 'src/environments/environment.prod';
-import * as firebase from 'firebase';
 // importing shared module
 import { SharedModule } from './shared/shared.module';
 import { SplashScreenComponent } from './shared/splash-screen/splash-screen.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
-firebase.default.initializeApp(environment.firebase);
 @NgModule({
   declarations: [AppComponent, SplashScreenComponent],
   imports: [

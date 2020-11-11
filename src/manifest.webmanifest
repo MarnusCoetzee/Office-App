@@ -1,6 +1,6 @@
 {
   "name": "Office App",
-  "short_name": "officeapp",
+  "short_name": "Office App",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
