@@ -119,7 +119,11 @@ export class ViewOfficeComponent implements OnInit {
   }
 
   // Open delete staff
-  onClickOpenDeleteStaffDialog(employeeId: string) {
+  onClickOpenDeleteStaffDialog(
+    employeeId: string,
+    firstName: string,
+    lastName: string
+  ) {
     // get the staff ID to send to add staff dialog
     const officeId = this.officeId;
     const dialogConfig = new MatDialogConfig();
@@ -128,8 +132,10 @@ export class ViewOfficeComponent implements OnInit {
     dialogConfig.data = {
       employeeId,
       officeId,
+      firstName,
+      lastName,
     };
-    this.matDialog.open(DeleteStaffDialogComponent);
+    this.matDialog.open(DeleteStaffDialogComponent, dialogConfig);
   }
 
   ngOnDestroy(): void {

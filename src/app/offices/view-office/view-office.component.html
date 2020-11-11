@@ -69,7 +69,13 @@
             </button>
             <button
               mat-menu-item
-              (click)="onClickOpenDeleteStaffDialog(employee.employeeId)"
+              (click)="
+                onClickOpenDeleteStaffDialog(
+                  employee.employeeId,
+                  employee.firstName,
+                  employee.lastName
+                )
+              "
             >
               <mat-icon>delete</mat-icon>
               <span>Remove Staff</span>

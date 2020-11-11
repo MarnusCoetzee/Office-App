@@ -1,1 +1,26 @@
-<p>delete-staff-dialog works!</p>
+<div *ngIf="isLoading">
+  <mat-spinner style="margin-top: 5vh"></mat-spinner>
+</div>
+
+<div *ngIf="!isLoading">
+  <div class="container">
+    <div class="exit-button">
+      <button mat-icon-button>
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <br />
+    <div class="heading">
+      <h1>Remove Staff</h1>
+      <br />
+      <p>Are you sure you want to <span style="color: red">remove</span></p>
+      <br />
+      <p style="font-weight: 500">{{ employeeName }}</p>
+    </div>
+  </div>
+  <div class="action-btn">
+    <button mat-raised-button (click)="onClickDeleteStaffMember()">
+      Remove
+    </button>
+  </div>
+</div>
