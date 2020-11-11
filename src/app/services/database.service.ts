@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
+import * as firebase from 'firebase';
 import { switchMap } from 'rxjs/operators';
 import { Office, Employee } from '../model/datamodels';
 @Injectable({
@@ -94,6 +95,44 @@ export class DatabaseService {
       .doc(id)
       .collection('staff')
       .valueChanges();
+  }
+
+  addOfficeEmployee(officeId: string, employee: Employee, staffId: string) {
+    return this.db
+      .collection('offices')
+      .doc(officeId)
+      .collection('staff')
+      .doc(staffId)
+      .set({
+        ...employee,
+        staffId,
+      });
+  }
+
+  incrementOfficeEmployeeTotal(officeId: string) {
+    const increase = firebase.default.firestore.FieldValue.increment(1);
+    return this.db
+      .collection('offices')
+      .doc(officeId)
+      .update({
+        totalEmployees: increase,
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  decreaseOfficeEmployeeTotal(officeId: string) {
+    const increase = firebase.default.firestore.FieldValue.increment(-1);
+    return this.db
+      .collection('offices')
+      .doc(officeId)
+      .update({
+        totalEmployees: increase,
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
   editOfficeEmployee(officeId: string, employeeId: string, data: Employee) {
     return this.db

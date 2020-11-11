@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { Employee, Office } from 'src/app/model/datamodels';
 import { DatabaseService } from 'src/app/services/database.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddStaffDialogComponent } from '../dialogs/add-staff-dialog/add-staff-dialog.component';
 import { EditStaffDialogComponent } from '../dialogs/edit-staff-dialog/edit-staff-dialog.component';
 import { DeleteStaffDialogComponent } from '../dialogs/delete-staff-dialog/delete-staff-dialog.component';
@@ -101,8 +101,16 @@ export class ViewOfficeComponent implements OnInit {
   }
 
   // Open Add Staff Dialog
-  onClickOpenAddStaffDialog() {
-    this.matDialog.open(AddStaffDialogComponent);
+  onClickOpenAddStaffDialog(officeId: string) {
+    // get the office ID to send to add staff dialog
+    officeId = this.officeId;
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.minWidth = '350px';
+    dialogConfig.minHeight = '350px';
+    dialogConfig.data = {
+      officeId,
+    };
+    this.matDialog.open(AddStaffDialogComponent, dialogConfig);
   }
 
   // Open Edit Staff Dialog
@@ -112,6 +120,15 @@ export class ViewOfficeComponent implements OnInit {
 
   // Open delete staff
   onClickOpenDeleteStaffDialog(employeeId: string) {
+    // get the staff ID to send to add staff dialog
+    const officeId = this.officeId;
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.minWidth = '350px';
+    dialogConfig.minHeight = '350px';
+    dialogConfig.data = {
+      employeeId,
+      officeId,
+    };
     this.matDialog.open(DeleteStaffDialogComponent);
   }
 
