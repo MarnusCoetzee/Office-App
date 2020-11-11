@@ -1,1 +1,26 @@
-<p>delete-office works!</p>
+<div *ngIf="isLoading">
+  <mat-spinner style="margin-top: 5vh"></mat-spinner>
+</div>
+
+<div *ngIf="!isLoading">
+  <div class="container">
+    <div class="exit-button">
+      <button mat-icon-button (click)="onClickCloseDialog()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <br />
+    <div class="heading">
+      <h1>Remove Office</h1>
+    </div>
+    <div class="sub-heading">
+      <p>Are you sure you want to <span style="color: red">Remove</span></p>
+      <h2>{{ officeName }}</h2>
+    </div>
+    <div class="action-btn">
+      <button mat-raised-button (click)="onClickDeleteOffice()">
+        Remove Office
+      </button>
+    </div>
+  </div>
+</div>
