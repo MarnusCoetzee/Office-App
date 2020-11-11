@@ -87,3 +87,19 @@
     text-align: start;
   }
 }
+
+.empty-action {
+  display: grid;
+  place-items: center;
+  background-color: whitesmoke;
+  padding: 1rem;
+  p {
+    font-size: 22px;
+    font-weight: 400;
+  }
+  button {
+    background-color: #0877ae;
+    color: white;
+    height: 46px;
+  }
+}

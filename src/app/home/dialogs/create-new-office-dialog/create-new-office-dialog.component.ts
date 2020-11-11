@@ -75,14 +75,14 @@ export class CreateNewOfficeDialogComponent implements OnInit {
       .createNewoffice(office, id)
       .then(() => {
         this.dialogRef.close();
-        this.snackbar.open('Successfully added a new office', 'Okay', {
-          duration: 2500,
+        this.snackbar.open('Successfully added a new office', '', {
+          duration: 2000,
         });
         this.isLoading = false;
       })
       .catch((error) => {
         this.snackbar.open('An error has occurred, please try again', 'Okay', {
-          duration: 2500,
+          duration: 2000,
         });
         return;
       });

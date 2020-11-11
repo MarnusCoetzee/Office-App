@@ -41,25 +41,89 @@
       Staff Members: {{ officeDetails.totalEmployees }}/
       {{ officeDetails.maxOfficeOccupants }}
     </p>
-    <button mat-raised-button (click)="onClickOpenAddStaffDialog()">
-      Add Staff Member
-    </button>
+    <div
+      *ngIf="officeDetails.totalEmployees < officeDetails.maxOfficeOccupants"
+    >
+      <button mat-raised-button (click)="onClickOpenAddStaffDialog()">
+        Add Staff Member
+      </button>
+    </div>
+    <div
+      *ngIf="!(officeDetails.totalEmployees < officeDetails.maxOfficeOccupants)"
+    >
+      <button mat-raised-button>Office Full</button>
+    </div>
   </div>
   <!--List Of Employee Cards-->
   <!--Unfiltered Shown Before input-->
-  <div class="employee-cards" *ngIf="!showFiltered">
-    <div class="employee-card" *ngFor="let employee of employees">
-      <mat-card>
-        <div class="card-layout">
-          <div class="left-col">
+  <div *ngIf="employees.length == 0">
+    <div class="empty-action">
+      <p>No staff added yet</p>
+      <button mat-raised-button (click)="onClickOpenAddStaffDialog()">
+        Add First Staff
+      </button>
+    </div>
+  </div>
+  <div *ngIf="employees.length > 0">
+    <div class="employee-cards" *ngIf="!showFiltered">
+      <div class="employee-card" *ngFor="let employee of employees">
+        <mat-card>
+          <div class="card-layout">
+            <div class="left-col">
+              <div class="avatar">
+                <img mat-card-avatar src="../../../assets/defaultavatar.png" />
+              </div>
+            </div>
+            <div class="middle-col">
+              <h1>{{ employee.firstName }} {{ employee.lastName }}</h1>
+            </div>
+            <div class="right-col">
+              <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button
+                  mat-menu-item
+                  (click)="
+                    onClickOpenEditStaffDialog(
+                      employee.employeeId,
+                      employee.firstName,
+                      employee.lastName
+                    )
+                  "
+                >
+                  <mat-icon>edit</mat-icon>
+                  <span>Edit Staff</span>
+                </button>
+                <button
+                  mat-menu-item
+                  (click)="
+                    onClickOpenDeleteStaffDialog(
+                      employee.employeeId,
+                      employee.firstName,
+                      employee.lastName
+                    )
+                  "
+                >
+                  <mat-icon>delete</mat-icon>
+                  <span>Remove Staff</span>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <!--List Of Employee Cards-->
+    <!--Filtered Shown After Input-->
+    <div class="employee-cards" *ngIf="showFiltered">
+      <div class="employee-card" *ngFor="let employee of filteredEmployees">
+        <mat-card>
+          <div class="card-layout">
             <div class="avatar">
               <img mat-card-avatar src="../../../assets/defaultavatar.png" />
             </div>
-          </div>
-          <div class="middle-col">
             <h1>{{ employee.firstName }} {{ employee.lastName }}</h1>
-          </div>
-          <div class="right-col">
             <button mat-icon-button [matMenuTriggerFor]="menu">
               <mat-icon>more_vert</mat-icon>
             </button>
@@ -92,53 +156,8 @@
               </button>
             </mat-menu>
           </div>
-        </div>
-      </mat-card>
-    </div>
-  </div>
-  <!--List Of Employee Cards-->
-  <!--Filtered Shown After Input-->
-  <div class="employee-cards" *ngIf="showFiltered">
-    <div class="employee-card" *ngFor="let employee of filteredEmployees">
-      <mat-card>
-        <div class="card-layout">
-          <div class="avatar">
-            <img mat-card-avatar src="../../../assets/defaultavatar.png" />
-          </div>
-          <h1>{{ employee.firstName }} {{ employee.lastName }}</h1>
-          <button mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button
-              mat-menu-item
-              (click)="
-                onClickOpenEditStaffDialog(
-                  employee.employeeId,
-                  employee.firstName,
-                  employee.lastName
-                )
-              "
-            >
-              <mat-icon>edit</mat-icon>
-              <span>Edit Staff</span>
-            </button>
-            <button
-              mat-menu-item
-              (click)="
-                onClickOpenDeleteStaffDialog(
-                  employee.employeeId,
-                  employee.firstName,
-                  employee.lastName
-                )
-              "
-            >
-              <mat-icon>delete</mat-icon>
-              <span>Remove Staff</span>
-            </button>
-          </mat-menu>
-        </div>
-      </mat-card>
+        </mat-card>
+      </div>
     </div>
   </div>
 </div>
