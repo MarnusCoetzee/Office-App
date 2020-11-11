@@ -56,7 +56,7 @@
   </div>
   <!--List Of Employee Cards-->
   <!--Unfiltered Shown Before input-->
-  <div *ngIf="employees.length == 0">
+  <div *ngIf="employees?.length == 0">
     <div class="empty-action">
       <p>No staff added yet</p>
       <button mat-raised-button (click)="onClickOpenAddStaffDialog()">
@@ -64,7 +64,7 @@
       </button>
     </div>
   </div>
-  <div *ngIf="employees.length > 0">
+  <div *ngIf="employees?.length > 0">
     <div class="employee-cards" *ngIf="!showFiltered">
       <div class="employee-card" *ngFor="let employee of employees">
         <mat-card>

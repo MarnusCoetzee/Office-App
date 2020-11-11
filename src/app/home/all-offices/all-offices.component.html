@@ -49,7 +49,10 @@
                   <mat-icon>work_outline</mat-icon>
                   <span>View Office</span>
                 </button>
-                <button mat-menu-item (click)="onClickOpenEditOfficeDialog()">
+                <button
+                  mat-menu-item
+                  (click)="onClickOpenEditOfficeDialog(office.id)"
+                >
                   <mat-icon>edit</mat-icon>
                   <span>Edit</span>
                 </button>

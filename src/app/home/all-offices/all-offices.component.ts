@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Office } from 'src/app/model/datamodels';
@@ -43,8 +43,12 @@ export class AllOfficesComponent implements OnInit {
     this.dialog.open(CreateNewOfficeDialogComponent);
   }
 
-  onClickOpenEditOfficeDialog() {
-    this.dialog.open(EditOfficeComponent);
+  onClickOpenEditOfficeDialog(officeId: string) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      officeId,
+    };
+    this.dialog.open(EditOfficeComponent, dialogConfig);
   }
 
   onClickOpenDeleteOfficeDialog() {
