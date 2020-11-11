@@ -4,6 +4,10 @@ import { Subscription } from 'rxjs';
 import { Employee, Office } from 'src/app/model/datamodels';
 import { DatabaseService } from 'src/app/services/database.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { AddStaffDialogComponent } from '../dialogs/add-staff-dialog/add-staff-dialog.component';
+import { EditStaffDialogComponent } from '../dialogs/edit-staff-dialog/edit-staff-dialog.component';
+import { DeleteStaffDialogComponent } from '../dialogs/delete-staff-dialog/delete-staff-dialog.component';
 
 @Component({
   selector: 'app-view-office',
@@ -22,33 +26,9 @@ export class ViewOfficeComponent implements OnInit {
 
   showFiltered: boolean = false;
 
-  employees: Array<Employee> = [
-    {
-      employeeId: '123',
-      firstName: 'Marnus',
-      lastName: 'Coetzee',
-    },
-    {
-      employeeId: '122',
-      firstName: 'Johan',
-      lastName: 'Botha',
-    },
-    {
-      employeeId: '111',
-      firstName: 'Marijke',
-      lastName: 'Louw',
-    },
-    {
-      employeeId: '121',
-      firstName: 'Jeanne',
-      lastName: 'De Wet',
-    },
-    {
-      employeeId: '125',
-      firstName: 'Daniel',
-      lastName: 'Novitzkas',
-    },
-  ];
+  employeesSubscription: Subscription;
+
+  employees: Employee[];
 
   filteredEmployees: Array<Employee> = [];
 
@@ -56,7 +36,8 @@ export class ViewOfficeComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private dbService: DatabaseService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private matDialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -71,25 +52,41 @@ export class ViewOfficeComponent implements OnInit {
         console.log(officeResult);
         this.isLoading = false;
       });
+    // get the staff that belong to the office
+    this.employeesSubscription = this.dbService
+      .getOfficeEmployees(this.officeId)
+      .subscribe((staff: Employee[]) => {
+        this.employees = staff;
+        console.log(this.employees);
+      });
 
+    // form used for search input box
     this.searchForm = this.fb.group({
       searchString: '',
     });
     this.onChanges();
   }
 
+  /**
+   * Function that filteres through employee names and shows result
+   */
   onChanges(): void {
     this.searchForm.valueChanges.subscribe((value) => {
+      // show different array results in html, use showFiltered with ngIf to switch between arrays
+      // show filtered array if a search input has been detected
       if (value.searchString.length > 0) {
         console.log('showing filtered names');
         this.showFiltered = true;
       }
+      // show original array if the search input is cancelled
       if (value.searchString.length === 0) {
         console.log('Showing original array again');
         this.showFiltered = false;
       }
       this.filteredEmployees = this.employees.filter((searchedEmployee) => {
-        return searchedEmployee.firstName
+        const employeeName =
+          searchedEmployee.firstName + ' ' + searchedEmployee.lastName;
+        return employeeName
           .toLowerCase()
           .includes(value.searchString.toLowerCase());
       });
@@ -98,7 +95,34 @@ export class ViewOfficeComponent implements OnInit {
     });
   }
 
+  // Navigate Back To Home
   onClickNavigateBack() {
     this.router.navigate(['home']);
+  }
+
+  // Open Add Staff Dialog
+  onClickOpenAddStaffDialog() {
+    this.matDialog.open(AddStaffDialogComponent);
+  }
+
+  // Open Edit Staff Dialog
+  onClickOpenEditStaffDialog(employeeId: string) {
+    this.matDialog.open(EditStaffDialogComponent);
+  }
+
+  // Open delete staff
+  onClickOpenDeleteStaffDialog(employeeId: string) {
+    this.matDialog.open(DeleteStaffDialogComponent);
+  }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    if (this.officeSubscription) {
+      this.officeSubscription.unsubscribe();
+    }
+    if (this.employeesSubscription) {
+      this.employeesSubscription.unsubscribe();
+    }
   }
 }

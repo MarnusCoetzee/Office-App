@@ -12,3 +12,8 @@ mat-spinner {
   margin: auto;
   margin-top: 30vh;
 }
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: #0877ae;
+}

@@ -88,4 +88,33 @@ export class DatabaseService {
    * Office employee functions
    * Add employee, delete employee, update employee details
    */
+  getOfficeEmployees(id: string) {
+    return this.db
+      .collection('offices')
+      .doc(id)
+      .collection('staff')
+      .valueChanges();
+  }
+  editOfficeEmployee(officeId: string, employeeId: string, data: Employee) {
+    return this.db
+      .collection('offices')
+      .doc(officeId)
+      .collection('staff')
+      .doc(employeeId)
+      .set(
+        {
+          ...data,
+        },
+        { merge: true }
+      );
+  }
+
+  removeOfficeEmployee(officeId: string, employeeId: string) {
+    return this.db
+      .collection('offices')
+      .doc(officeId)
+      .collection('staff')
+      .doc(employeeId)
+      .delete();
+  }
 }
