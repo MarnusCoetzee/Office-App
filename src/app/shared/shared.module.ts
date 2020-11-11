@@ -14,6 +14,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ShellComponent } from './shell/shell.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignoutButtonDirective } from './shell/directives/signout-button.directive';
@@ -40,6 +41,7 @@ const modules = [
   MatDialogModule,
   MatProgressSpinnerModule,
   MatSelectModule,
+  MatAutocompleteModule,
   FormsModule,
   ReactiveFormsModule,
 ];

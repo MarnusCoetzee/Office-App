@@ -5,6 +5,7 @@
 
 <!--Display information after loading finished-->
 <div *ngIf="!isLoading">
+  <!--Header section of the view office page-->
   <div class="top-background">
     <div class="top-row">
       <button mat-icon-button (click)="onClickNavigateBack()">
@@ -12,11 +13,53 @@
       </button>
       <h1>{{ officeDetails.name }}</h1>
     </div>
+    <!--Information about the office inside of the header section-->
     <div class="middle-row">
       <p>Address: {{ officeDetails.location }}</p>
       <p>Email: {{ officeDetails.email }}</p>
       <p>Office Tell: {{ officeDetails.tellNumber }}</p>
       <p>Max Capacity: {{ officeDetails.maxOfficeOccupants }}</p>
+    </div>
+  </div>
+  <!--Search Bar That Filters Users-->
+  <div class="searchbar">
+    <form [formGroup]="searchForm">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Search Employees..."
+          formControlName="searchString"
+          autocomplete="off"
+        />
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </form>
+  </div>
+  <!--Add Employee + Employee Count Section-->
+  <div class="employee-actions">
+    <p>
+      Staff Members: {{ officeDetails.totalEmployees }}/
+      {{ officeDetails.maxOfficeOccupants }}
+    </p>
+    <button mat-raised-button>Add Staff</button>
+  </div>
+  <!--List Of Employee Cards-->
+  <div class="employee-cards" *ngIf="!showFiltered">
+    <div class="employee-card" *ngFor="let employee of employees">
+      <mat-card>
+        <mat-card-title
+          >{{ employee.firstName }} {{ employee.lastName }}</mat-card-title
+        >
+      </mat-card>
+    </div>
+  </div>
+  <div class="employee-cards" *ngIf="showFiltered">
+    <div class="employee-card" *ngFor="let employee of filteredEmployees">
+      <mat-card>
+        <mat-card-title
+          >{{ employee.firstName }} {{ employee.lastName }}</mat-card-title
+        >
+      </mat-card>
     </div>
   </div>
 </div>
