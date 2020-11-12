@@ -1,19 +1,18 @@
+<!--Loading spinner indicates state of http request-->
 <div *ngIf="isLoading">
   <mat-spinner></mat-spinner>
 </div>
 
+<!--Show if not loading via state-->
 <div *ngIf="!isLoading">
+  <!--Container used to adjust size based on screen size-->
   <div class="container">
     <!--No Offices Stored Yet, Prompt User To Add A New Office-->
     <div *ngIf="offices?.length == 0">
       <div class="box">
         <mat-card>
           <mat-card-title>No Offices Yet</mat-card-title>
-          <button
-            mat-raised-button
-            color="primary"
-            (click)="onClickOpenAddOfficeDialog()"
-          >
+          <button mat-raised-button (click)="onClickOpenAddOfficeDialog()">
             Add First Office
             <mat-icon>add</mat-icon>
           </button>
@@ -21,7 +20,7 @@
       </div>
     </div>
 
-    <!--Show all offices that a user owns-->
+    <!--Show all offices that a user owns if offices exist-->
     <div *ngIf="offices?.length > 0">
       <div class="offices_block">
         <div *ngFor="let office of offices">
@@ -70,7 +69,7 @@
                 </button>
               </mat-menu>
               <p style="color: lightskyblue; font-weight: 400">
-                {{ office.tellNumber }}
+                {{ office.tellNumber | phone }}
               </p>
             </div>
           </div>

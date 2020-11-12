@@ -19,8 +19,9 @@ import { ShellComponent } from './shell/shell.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignoutButtonDirective } from './shell/directives/signout-button.directive';
 import { AddNewOfficeDirective } from './shell/directives/add-new-office.directive';
+import { PhonePipe } from '../custom-pipes/phone.pipe';
 
-const components = [ShellComponent];
+const components = [ShellComponent, PhonePipe];
 
 const directives = [SignoutButtonDirective, AddNewOfficeDirective];
 
