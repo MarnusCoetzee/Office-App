@@ -2,9 +2,11 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
 import { Office } from 'src/app/model/datamodels';
 import { DatabaseService } from 'src/app/services/database.service';
+import { Color, officeColors } from '../office-colors';
 
 @Component({
   selector: 'app-edit-office',
@@ -21,12 +23,18 @@ export class EditOfficeComponent implements OnInit {
 
   editOfficeForm: FormGroup;
 
+  // office colours
+  officeColours: Color[] = officeColors;
+  // office colour default
+  selectedColour: string = 'black';
+
   constructor(
     private dialogRef: MatDialogRef<EditOfficeComponent>,
     @Inject(MAT_DIALOG_DATA) data,
     private dbService: DatabaseService,
     private fb: FormBuilder,
-    private afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth,
+    private snackbar: MatSnackBar
   ) {
     this.officeId = data.officeId;
   }
@@ -73,7 +81,7 @@ export class EditOfficeComponent implements OnInit {
   }
 
   get maxOccupantsFromForm() {
-    return this.editOfficeForm.get('maxOccupants');
+    return this.editOfficeForm.get('maxOfficeOccupants');
   }
 
   onClickClearFormField(type: string) {
@@ -109,6 +117,35 @@ export class EditOfficeComponent implements OnInit {
     const tellNumber = this.editOfficeForm.value.tellNumber;
     const location = this.editOfficeForm.value.location;
     const maxOfficeOccupants = this.editOfficeForm.value.maxOfficeOccupants;
+    const totalEmployees = this.officeDetails.totalEmployees;
+    const officeColor = '';
+    const office: Office = {
+      id,
+      ownerId,
+      name,
+      email,
+      tellNumber,
+      location,
+      maxOfficeOccupants,
+      totalEmployees,
+      officeColor,
+    };
+    this.dbService
+      .updateOfficeDetails(office, id)
+      .then(() => {
+        this.dialogRef.close();
+        this.snackbar.open('Successfully updated office', '', {
+          duration: 2000,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        this.isLoading = false;
+        this.snackbar.open('An error has occurred, please try again', '', {
+          duration: 2000,
+        });
+        return;
+      });
   }
 
   ngOnDestroy(): void {

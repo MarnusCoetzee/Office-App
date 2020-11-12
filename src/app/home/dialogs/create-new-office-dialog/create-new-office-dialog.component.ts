@@ -7,12 +7,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Office } from 'src/app/model/datamodels';
 import { DatabaseService } from 'src/app/services/database.service';
-
-interface Colours {
-  value: string;
-  viewValue: string;
-}
-
+import { officeColors, Color } from '../office-colors';
 @Component({
   selector: 'app-create-new-office-dialog',
   templateUrl: './create-new-office-dialog.component.html',
@@ -20,17 +15,10 @@ interface Colours {
 })
 export class CreateNewOfficeDialogComponent implements OnInit {
   // office colours
-  officeColours: Colours[] = [
-    { value: 'black', viewValue: 'Black' },
-    { value: 'blue', viewValue: 'Blue' },
-    { value: 'green', viewValue: 'Green' },
-    { value: 'yellow', viewValue: 'Yellow' },
-    { value: 'red', viewValue: 'Red' },
-  ];
+  officeColours: Color[] = officeColors;
   // office colour default
   selectedColour: string = 'black';
   officeDetailsForm: FormGroup;
-
   isLoading: boolean;
 
   constructor(

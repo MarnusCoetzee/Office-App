@@ -69,12 +69,9 @@ export class DatabaseService {
     return this.db
       .collection('offices')
       .doc(officeId)
-      .set(
-        {
-          ...office,
-        },
-        { merge: true }
-      );
+      .update({
+        ...office,
+      });
   }
 
   /**

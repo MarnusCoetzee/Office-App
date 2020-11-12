@@ -38,7 +38,7 @@
         <mat-form-field>
           <input
             matInput
-            placeholder="Office Email"
+            placeholder="Tellephone Number"
             formControlName="tellNumber"
           />
           <button
@@ -73,10 +73,27 @@
             <mat-icon>clear</mat-icon>
           </button>
         </mat-form-field>
+        <mat-form-field>
+          <mat-label>Office Colour</mat-label>
+          <mat-select [(value)]="selectedColour">
+            <mat-option
+              *ngFor="let color of officeColours"
+              [value]="color.value"
+            >
+              {{ color.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </form>
     </div>
     <div class="action-btn">
-      <button mat-raised-button>Save Office</button>
+      <button
+        mat-raised-button
+        (click)="onClickSaveNewOfficeDetails()"
+        [disabled]="editOfficeForm.invalid"
+      >
+        Save Office
+      </button>
     </div>
   </div>
 </div>
