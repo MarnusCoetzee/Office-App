@@ -24,6 +24,7 @@ export class PwaService {
     }
   }
 
+  // checks for update when splashscreen is on
   checkForUpdate(): Observable<boolean> {
     const waitFor = 1000;
 
