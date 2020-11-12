@@ -26,15 +26,15 @@ export class AddStaffDialogComponent implements OnInit {
     private dbService: DatabaseService,
     private snackbar: MatSnackBar
   ) {
-    this.officeId = data.officeId;
+    this.officeId = data.officeId; // get office id passed on via dialog
   }
 
   ngOnInit(): void {
-    console.log(this.officeId);
     this.buildForm();
   }
 
   private buildForm() {
+    // instantiate formgroup
     this.staffForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -47,6 +47,7 @@ export class AddStaffDialogComponent implements OnInit {
     const employeeId = this.db.createId();
     const firstName = this.staffForm.value.firstName;
     const lastName = this.staffForm.value.lastName;
+    // create staff object
     const staffMember: Employee = {
       employeeId,
       firstName,

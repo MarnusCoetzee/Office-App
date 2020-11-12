@@ -94,6 +94,12 @@ export class DatabaseService {
       .valueChanges();
   }
 
+  /**
+   * Add office employee
+   * @param officeId
+   * @param employee
+   * @param staffId
+   */
   addOfficeEmployee(officeId: string, employee: Employee, staffId: string) {
     return this.db
       .collection('offices')
@@ -105,19 +111,21 @@ export class DatabaseService {
       });
   }
 
+  /**
+   * Increase office employee count +1 after addition
+   * @param officeId
+   */
   incrementOfficeEmployeeTotal(officeId: string) {
     const increase = firebase.default.firestore.FieldValue.increment(1);
-    return this.db
-      .collection('offices')
-      .doc(officeId)
-      .update({
-        totalEmployees: increase,
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    return this.db.collection('offices').doc(officeId).update({
+      totalEmployees: increase,
+    });
   }
 
+  /**
+   * Decrease office employee count -1 after delete
+   * @param officeId
+   */
   decreaseOfficeEmployeeTotal(officeId: string) {
     const increase = firebase.default.firestore.FieldValue.increment(-1);
     return this.db
@@ -130,6 +138,13 @@ export class DatabaseService {
         console.log(error);
       });
   }
+
+  /**
+   * Edit office employee object in the db
+   * @param officeId
+   * @param employeeId
+   * @param data
+   */
   editOfficeEmployee(officeId: string, employeeId: string, data: Employee) {
     return this.db
       .collection('offices')
@@ -141,6 +156,11 @@ export class DatabaseService {
       });
   }
 
+  /**
+   * Delete office employee via office id and employee id
+   * @param officeId
+   * @param employeeId
+   */
   removeOfficeEmployee(officeId: string, employeeId: string) {
     return this.db
       .collection('offices')

@@ -8,7 +8,7 @@ import { DatabaseService } from 'src/app/services/database.service';
   templateUrl: './delete-office.component.html',
   styleUrls: ['./delete-office.component.scss'],
 })
-export class DeleteOfficeComponent implements OnInit {
+export class DeleteOfficeComponent {
   isLoading: boolean;
 
   officeId: string;
@@ -20,11 +20,10 @@ export class DeleteOfficeComponent implements OnInit {
     private dbService: DatabaseService,
     private snackbar: MatSnackBar
   ) {
+    // get data of office passed over via dialog data
     this.officeId = data.officeId;
     this.officeName = data.officeName;
   }
-
-  ngOnInit(): void {}
 
   onClickCloseDialog() {
     this.dialogRef.close();
@@ -32,8 +31,8 @@ export class DeleteOfficeComponent implements OnInit {
 
   onClickDeleteOffice() {
     const id = this.officeId;
-    this.isLoading = true;
-    this.dbService
+    this.isLoading = true; // start loading state
+    this.dbService // call databse service and pass in office id to start delete
       .deleteOffice(id)
       .then(() => {
         this.isLoading = false;
@@ -42,8 +41,7 @@ export class DeleteOfficeComponent implements OnInit {
           duration: 2000,
         });
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         this.isLoading = false;
         this.snackbar.open('An error has occurred, please try again');
         return;

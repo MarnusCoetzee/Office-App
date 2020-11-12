@@ -9,14 +9,16 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./landing-page.component.scss'],
 })
 export class LandingPageComponent implements OnInit {
+  // subscribe to auth state
   authSubscription: Subscription;
   constructor(public afAuth: AngularFireAuth, private router: Router) {}
 
   ngOnInit(): void {
+    // get auth state via afAuth
     this.authSubscription = this.afAuth.authState.subscribe((authResult) => {
       if (authResult) {
         // user is authenticated
-        this.router.navigate(['home']);
+        this.router.navigate(['home']); // automatically navigate to home page
       }
     });
   }

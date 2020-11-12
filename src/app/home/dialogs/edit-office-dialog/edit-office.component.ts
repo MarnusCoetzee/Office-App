@@ -26,7 +26,7 @@ export class EditOfficeComponent implements OnInit {
   // office colours
   officeColours: Color[] = officeColors;
   // office colour default
-  selectedColour: string = 'black';
+  selectedColour: string;
 
   constructor(
     private dialogRef: MatDialogRef<EditOfficeComponent>,
@@ -41,16 +41,20 @@ export class EditOfficeComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoading = true;
+    // get office details via db service
     this.officeSubscription = this.dbService
       .getSingleOffice(this.officeId)
       .subscribe((officeResult: Office) => {
+        // store office in variable: Office
         this.officeDetails = officeResult;
-        this.initEditForm();
+        this.selectedColour = officeResult.officeColor;
+        this.initEditForm(); // instantiate office edit form after office details received
         this.isLoading = false;
       });
   }
 
   private initEditForm() {
+    // instantiate edit form, prepopulate form with existing office information
     this.editOfficeForm = this.fb.group({
       name: [this.officeDetails.name, Validators.required],
       email: [this.officeDetails.email, Validators.required],
@@ -84,6 +88,10 @@ export class EditOfficeComponent implements OnInit {
     return this.editOfficeForm.get('maxOfficeOccupants');
   }
 
+  /**
+   * Function clears a selected form field via switch case using type
+   * @param type
+   */
   onClickClearFormField(type: string) {
     switch (type) {
       case 'name':
@@ -108,6 +116,10 @@ export class EditOfficeComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  /**
+   * Save new office details
+   * Only changes details from form, if not changed via form, will be overwritten in firestore with existing value
+   */
   async onClickSaveNewOfficeDetails() {
     this.isLoading = true;
     const id = this.officeId;
@@ -118,7 +130,7 @@ export class EditOfficeComponent implements OnInit {
     const location = this.editOfficeForm.value.location;
     const maxOfficeOccupants = this.editOfficeForm.value.maxOfficeOccupants;
     const totalEmployees = this.officeDetails.totalEmployees;
-    const officeColor = '';
+    const officeColor = this.selectedColour;
     const office: Office = {
       id,
       ownerId,
@@ -130,6 +142,7 @@ export class EditOfficeComponent implements OnInit {
       totalEmployees,
       officeColor,
     };
+    // call db service and send office object along with office id
     this.dbService
       .updateOfficeDetails(office, id)
       .then(() => {

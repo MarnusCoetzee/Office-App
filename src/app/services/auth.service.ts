@@ -112,6 +112,9 @@ export class AuthService {
       });
   }
 
+  /**
+   * Signout function
+   */
   async signout() {
     await this.afAuth
       .signOut()

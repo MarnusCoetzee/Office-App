@@ -26,9 +26,7 @@ export class DeleteStaffDialogComponent implements OnInit {
     this.employeeName = data.firstName + ' ' + data.lastName;
   }
 
-  ngOnInit(): void {
-    console.log(this.employeeName);
-  }
+  ngOnInit(): void {}
 
   onClickDeleteStaffMember() {
     const officeId = this.officeId;

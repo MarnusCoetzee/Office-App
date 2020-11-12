@@ -17,7 +17,7 @@
     <div class="middle-row">
       <p>Address: {{ officeDetails.location }}</p>
       <p>Email: {{ officeDetails.email }}</p>
-      <p>Office Tell: {{ officeDetails.tellNumber }}</p>
+      <p>Office Tell: {{ officeDetails.tellNumber | phone }}</p>
       <p>Max Capacity: {{ officeDetails.maxOfficeOccupants }}</p>
     </div>
   </div>

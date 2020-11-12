@@ -7,6 +7,10 @@ import { from as fromPromise } from 'rxjs';
   providedIn: 'root',
 })
 export class PwaService {
+  /**
+   * Service that manages the manifest.json and checks if updates are available
+   * if update is available the application will refresh location and get new assets + update cache
+   */
   constructor(private appRef: ApplicationRef, private swUpdate: SwUpdate) {
     if (this.swUpdate.isEnabled) {
       this.appRef.isStable

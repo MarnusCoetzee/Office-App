@@ -39,6 +39,9 @@ export class AllOfficesComponent implements OnInit {
       });
   }
 
+  /**
+   * Open Office Dialog
+   */
   onClickOpenAddOfficeDialog() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.minWidth = '350px';
@@ -46,6 +49,10 @@ export class AllOfficesComponent implements OnInit {
     this.dialog.open(CreateNewOfficeDialogComponent, dialogConfig);
   }
 
+  /**
+   * Edit Office Dialog
+   * @param officeId
+   */
   onClickOpenEditOfficeDialog(officeId: string) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.minWidth = '350px';
@@ -56,6 +63,11 @@ export class AllOfficesComponent implements OnInit {
     this.dialog.open(EditOfficeComponent, dialogConfig);
   }
 
+  /**
+   * Delete Office Dialog
+   * @param officeId
+   * @param officeName
+   */
   onClickOpenDeleteOfficeDialog(officeId: string, officeName: string) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.minWidth = '350px';
@@ -67,6 +79,10 @@ export class AllOfficesComponent implements OnInit {
     this.dialog.open(DeleteOfficeComponent, dialogConfig);
   }
 
+  /**
+   * Navigate To Office View
+   * @param id
+   */
   onClickNavigateOffice(id: string) {
     this.router.navigate(['office', id]);
   }

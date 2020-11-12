@@ -56,13 +56,10 @@ import { PwaService } from '../../services/pwa.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SplashScreenComponent implements OnInit {
+  // custom splash screen that works in combination with the PWA service to refresh application in case of update
   show = true;
 
-  constructor(
-    private pwaService: PwaService,
-    private cdr: ChangeDetectorRef,
-    private appRef: ApplicationRef
-  ) {}
+  constructor(private pwaService: PwaService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.pwaService.checkForUpdate().subscribe((result) => {

@@ -37,12 +37,15 @@ export class EditStaffDialogComponent implements OnInit {
   }
 
   private initForm() {
+    // instantiate form
     this.staffForm = this.fb.group({
+      // pre-populate form
       firstName: [this.employeeFirstName, Validators.required],
       lastName: [this.employeeLastName, Validators.required],
     });
   }
 
+  // getters for form values, used to manipulate inside form
   get firstNameFromForm(): any {
     return this.staffForm.get('firstName');
   }
@@ -51,15 +54,25 @@ export class EditStaffDialogComponent implements OnInit {
     return this.staffForm.get('lastName');
   }
 
+  /**
+   * Function clears text fields
+   * @param id
+   */
+
   onClickClearTextField(id: string) {
-    if (id === 'firstName') {
-      this.firstNameFromForm.reset();
-    }
-    if (id === 'lastName') {
-      this.lastNameFromForm.reset();
+    switch (id) {
+      case 'firstName':
+        this.firstNameFromForm.reset();
+        break;
+      case 'lastName':
+        this.lastNameFromForm.reset();
+        break;
     }
   }
 
+  /**
+   * Function updates employee in db
+   */
   onClickUpdateUser() {
     this.isLoading = true;
     const employeeId = this.employeeId;

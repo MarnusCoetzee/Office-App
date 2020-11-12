@@ -1,4 +1,3 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -31,10 +30,12 @@ export class CreateNewOfficeDialogComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // Initialise Form
     this.initOfficeForm();
   }
 
   private initOfficeForm() {
+    // Build Form
     this.officeDetailsForm = this.fb.group({
       officeName: ['', Validators.required],
       officeEmailAddress: ['', Validators.required],
@@ -44,10 +45,13 @@ export class CreateNewOfficeDialogComponent implements OnInit {
     });
   }
 
+  // save new office to firestore
   async onClickSaveNewOffice() {
     this.isLoading = true;
     const ownerId = await (await this.afAuth.currentUser).uid;
+    // create office id via firestore
     const id = this.db.createId();
+    // instantiate office object to save to firestore
     const office: Office = {
       id,
       name: this.officeDetailsForm.value.officeName,
@@ -60,8 +64,10 @@ export class CreateNewOfficeDialogComponent implements OnInit {
       totalEmployees: 0,
     };
 
+    // call database service and send office object to db
     this.databaseService
       .createNewoffice(office, id)
+      // execute when successfully added to db
       .then(() => {
         this.dialogRef.close();
         this.snackbar.open('Successfully added a new office', '', {
@@ -69,14 +75,14 @@ export class CreateNewOfficeDialogComponent implements OnInit {
         });
         this.isLoading = false;
       })
-      .catch((error) => {
+      // handle errors
+      .catch(() => {
+        this.isLoading = false;
         this.snackbar.open('An error has occurred, please try again', 'Okay', {
           duration: 2000,
         });
         return;
       });
-
-    console.log(office);
   }
 
   onClickCloseDialog() {

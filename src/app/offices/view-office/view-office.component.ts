@@ -15,20 +15,19 @@ import { DeleteStaffDialogComponent } from '../dialogs/delete-staff-dialog/delet
   styleUrls: ['./view-office.component.scss'],
 })
 export class ViewOfficeComponent implements OnInit {
-  isLoading: boolean = false;
+  isLoading: boolean = false; // loading state
 
   officeId: string;
 
-  officeDetails: Office;
-  officeSubscription: Subscription;
+  officeDetails: Office; // store office from db in Office object
+  officeSubscription: Subscription; // office observable subscription
 
-  searchForm: FormGroup;
+  searchForm: FormGroup; // form used for search functionality
 
-  showFiltered: boolean = false;
+  showFiltered: boolean = false; // switch between searched staff or original staff
 
-  employeesSubscription: Subscription;
-
-  employees: Employee[];
+  employeesSubscription: Subscription; // employees array observable subscription
+  employees: Employee[]; // store employees in employee array
 
   filteredEmployees: Array<Employee> = [];
 
@@ -42,7 +41,7 @@ export class ViewOfficeComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoading = true;
-    this.officeId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.officeId = this.activatedRoute.snapshot.paramMap.get('id'); // get office id from route params
 
     // get the office details from the db
     this.officeSubscription = this.dbService
@@ -59,12 +58,15 @@ export class ViewOfficeComponent implements OnInit {
         this.employees = staff;
         console.log(this.employees);
       });
+    this.initSearchForm();
+    this.onChanges();
+  }
 
+  private initSearchForm() {
     // form used for search input box
     this.searchForm = this.fb.group({
       searchString: '',
     });
-    this.onChanges();
   }
 
   /**
@@ -75,14 +77,15 @@ export class ViewOfficeComponent implements OnInit {
       // show different array results in html, use showFiltered with ngIf to switch between arrays
       // show filtered array if a search input has been detected
       if (value.searchString.length > 0) {
-        console.log('showing filtered names');
+        // show filtered names
         this.showFiltered = true;
       }
       // show original array if the search input is cancelled
       if (value.searchString.length === 0) {
-        console.log('Showing original array again');
+        // show unfiltered names
         this.showFiltered = false;
       }
+      // filter employees array and return filtered employees
       this.filteredEmployees = this.employees.filter((searchedEmployee) => {
         const employeeName =
           searchedEmployee.firstName + ' ' + searchedEmployee.lastName;
@@ -90,8 +93,6 @@ export class ViewOfficeComponent implements OnInit {
           .toLowerCase()
           .includes(value.searchString.toLowerCase());
       });
-      console.log(value.searchString.length);
-      console.log(this.filteredEmployees);
     });
   }
 

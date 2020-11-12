@@ -73,6 +73,7 @@ export class AuthComponent implements OnInit {
     }
   }
 
+  // submit email + password if using authentication via email/password
   async onSubmit() {
     this.loading = true;
 
