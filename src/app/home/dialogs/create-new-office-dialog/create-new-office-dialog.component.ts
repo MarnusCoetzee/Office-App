@@ -19,6 +19,7 @@ interface Colours {
   styleUrls: ['./create-new-office-dialog.component.scss'],
 })
 export class CreateNewOfficeDialogComponent implements OnInit {
+  // office colours
   officeColours: Colours[] = [
     { value: 'black', viewValue: 'Black' },
     { value: 'blue', viewValue: 'Blue' },
@@ -26,7 +27,8 @@ export class CreateNewOfficeDialogComponent implements OnInit {
     { value: 'yellow', viewValue: 'Yellow' },
     { value: 'red', viewValue: 'Red' },
   ];
-  selectedColour: string;
+  // office colour default
+  selectedColour: string = 'black';
   officeDetailsForm: FormGroup;
 
   isLoading: boolean;
@@ -51,7 +53,6 @@ export class CreateNewOfficeDialogComponent implements OnInit {
       officeTellNumber: ['', Validators.required],
       officeAddress: ['', Validators.required],
       maxOccupants: ['', Validators.required],
-      officeColour: [''],
     });
   }
 
@@ -90,7 +91,7 @@ export class CreateNewOfficeDialogComponent implements OnInit {
     console.log(office);
   }
 
-  onClickCancel() {
+  onClickCloseDialog() {
     this.dialogRef.close();
   }
 }
